@@ -11,7 +11,7 @@ export class GlobalService {
   addError(message: string) {
     this.errors = message;
   }
-  fixError() {
-
+  clearError() {
+    this.errors = '';
   }
 }

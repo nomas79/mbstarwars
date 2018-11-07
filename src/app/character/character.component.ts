@@ -25,11 +25,9 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit() {    
     console.log(this.Global.characters.length);
-    if (this.Global.characters.length === 0) {
-      this.router.navigate['/characters'];
-      return;
-    }
-    console.log('continued');
+    if (this.Global.characters.length === 0) {      
+      this.router.navigate(['/characters']);      
+    }    
     this.getCharacter();
   }
   getCharacter() {

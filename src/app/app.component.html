@@ -1,22 +1,10 @@
 <div class="container">
-  <div class="well">Bear Alliance</div>
-
-  <ng-container *ngIf="Global.errors !== ''">
-    <div class="alert alert-danger">An error occured</div>
-  </ng-container>
+  <div class="well well-sm text-center"><h1>Star Wars Characters</h1></div>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-
-        
       
-
-          <router-outlet></router-outlet>
-        
-      
-
+<app-error></app-error>
+      <router-outlet></router-outlet>
     </div>
   </div>
-
-
-  
 </div>

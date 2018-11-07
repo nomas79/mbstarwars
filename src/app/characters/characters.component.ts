@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
 import { GlobalService } from '../global.service';
 
 @Component({
@@ -9,16 +8,11 @@ import { GlobalService } from '../global.service';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(public Api: ApiService, public Global: GlobalService) { }
+  constructor(public Global: GlobalService) { }
 
-  ngOnInit() {
-    this.getCharacters();
+  ngOnInit() {    
+    this.Global.clearError();
   }
   
-  getCharacters() {
-    this.Api.makeApi('assets/characters.json')
-      .subscribe((response: any) => (this.Global.characters = response.characters), () => {
-        this.Global.addError('Error');
-      });      
-  }
+  
 }
