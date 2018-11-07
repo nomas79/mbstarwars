@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="well">Bear Alliance</div>
+
+  <ng-container *ngIf="Global.errors !== ''">
+    <div class="alert alert-danger">An error occured</div>
+  </ng-container>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+        
+      
+
+          <router-outlet></router-outlet>
+        
+      
+
+    </div>
+  </div>
+
+
+  
+</div>
