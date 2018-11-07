@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">Characters</div>
-  
+
   <div class="list-group">
-<ng-container *ngFor="let character of Global.characters" >
-    <a routerLink="/character/{{ character.name }}" class="list-group-item">{{ character.name }}</a>
-  </ng-container>
-</div>
+    <ng-container *ngFor="let character of Global.characters">
+      <a routerLink="/character/{{ character.name }}" class="list-group-item">{{ character.name }}</a>
+    </ng-container>
+  </div>
 </div>

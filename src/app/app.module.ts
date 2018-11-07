@@ -8,12 +8,14 @@ import { CharactersComponent } from './characters/characters.component';
 import { ApiService } from './api.service';
 import { GlobalService } from './global.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterComponent,
-    CharactersComponent
+    CharactersComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

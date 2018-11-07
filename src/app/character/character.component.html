@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="pull-right">      .
-        <span class="label label-danger" *ngIf="Global.errors.length > 0">Loading...</span>
+        <span class="label label-danger" *ngIf="Global.errors.length > 0">Error</span>
         <span class="label label-warning" *ngIf="loading">Loading...</span>
-        <span class="label label-success" *ngIf="!loading">{{ films.length }} films</span>
+        <span class="label label-success" *ngIf="Global.errors.length === 0 && !loading">{{ films.length }} films</span>
     </div>
     {{ character.name }}'s Films
   </div>
@@ -16,14 +16,12 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngIf="films.length > 0">
+      <ng-container *ngIf="!loading">
         <tr *ngFor="let film of films">
           <td>{{ film.title }}</td>
-          <td>{{ film.release_date }}</td>
-        </tr>
-       
-      </ng-container>
-      
+          <td>{{ film.release_date | date:'EEEE, MMMM d yyyy' }}</td>
+        </tr>       
+      </ng-container>      
     </tbody>
   </table>
 
