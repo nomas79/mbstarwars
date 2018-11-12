@@ -11,8 +11,7 @@ import { GlobalService } from '../global.service';
 })
 export class CharacterComponent implements OnInit {
 
-  public character: any;
-  public filmsurl: any;
+  public character: any;  
   public films: any = [];
   public counter: number = 0;
   public loading: boolean = true;
@@ -35,7 +34,7 @@ export class CharacterComponent implements OnInit {
     const name = this.route.snapshot.paramMap.get('name');
     this.character = this.Global.characters.find(character => character.name === name);    
     this.Api.makeApi(this.character.url)
-      .subscribe((response: any) => (this.filmsurl = response.films), () => {
+      .subscribe((response: any) => (this.character = response), () => {
         this.Global.addError('Error');
         this.loading = false;
       }, () => {
@@ -45,12 +44,12 @@ export class CharacterComponent implements OnInit {
 
   getFilmsDetails() {
 
-    this.filmsurl.forEach(element => {
+    this.character.films.forEach(element => {
       this.counter++;
       this.getFilmDetails(element);
     });
 
-    this.loading = !(this.filmsurl.length === 0);
+    this.loading = !(this.character.films.length === 0);
   }
 
   getFilmDetails(url) {
@@ -60,9 +59,18 @@ export class CharacterComponent implements OnInit {
       this.loading = false;
     }, () => {
       this.counter--;
-      this.loading = (this.counter > 0);
+      if (this.counter === 0) {
+this.sortEpisode();
+      }
     });
+  }
 
+  sortEpisode() {
+   
+    this.films.sort(function(a,b) {
+      return (a.episode_id - b.episode_id);
+    });
+    this.loading = false;
   }
 
 }

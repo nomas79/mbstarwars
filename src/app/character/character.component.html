@@ -1,28 +1,80 @@
-<div class="panel panel-default">
+<div class="panel panel-sw" *ngIf="character">
   <div class="panel-heading">
-    <div class="pull-right">      .
-        <span class="label label-danger" *ngIf="Global.errors.length > 0">Error</span>
-        <span class="label label-warning" *ngIf="loading">Loading...</span>
-        <span class="label label-success" *ngIf="Global.errors.length === 0 && !loading">{{ films.length }} films</span>
+    {{ character.name }}
+  </div>
+  <div class="panel-body" id="character">
+    <div class="row">
+      <div class="col-sm-6">
+
+<div class="image">
+        <img src="{{ Global.getImage() }}" />
+</div>
+      </div>
+      <div class="col-sm-6">
+        <table class="table">
+          <tbody>            
+            <tr>
+              <td>Birth Year:</td>
+              <td>{{ character.birth_year }}</td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td>{{ character.gender }}</td>
+            </tr>
+            <tr>
+              <td>Height:</td>
+              <td>{{ character.height }}</td>
+            </tr>
+            <tr>
+              <td>Weight:</td>
+              <td>{{ character.mass }}</td>
+            </tr>
+            <tr>
+              <td>Hair Color:</td>
+              <td>{{ character.hair_color }}</td>
+            </tr>
+            <tr>
+              <td>Skin Color:</td>
+              <td>{{ character.skin_color }}</td>
+            </tr>
+            <tr>
+              <td>Eye Color:</td>
+              <td>{{ character.eye_color }}</td>
+            </tr>
+            <tr>
+              <td>Weight:</td>
+              <td>{{ character.mass }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-sw" *ngIf="films">
+  <div class="panel-heading">
+    <div class="pull-right">
+      <span class="label label-danger" *ngIf="Global.errors.length > 0">Error</span>
+      <span class="label label-warning" *ngIf="loading">Loading...</span>
+      <span class="label label-success" *ngIf="Global.errors.length === 0 && !loading">{{ films.length }} films</span>
     </div>
     {{ character.name }}'s Films
   </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="!loading">
+      <div *ngFor="let film of films" class="col-sm-3">
+        <div class="film">
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngIf="!loading">
-        <tr *ngFor="let film of films">
-          <td>{{ film.title }}</td>
-          <td>{{ film.release_date | date:'EEEE, MMMM d yyyy' }}</td>
-        </tr>       
-      </ng-container>      
-    </tbody>
-  </table>
+          <span class="episode">EPISODE {{ film.episode_id }}</span>
+          <div class="image">
+            <img src="{{ Global.getImage('film', film.title) }}" />
+          </div>
+          <span class="episode">{{ film.title }}</span>
+          <span class="release">{{ film.release_date | date:'EEEE, MMMM d yyyy' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>

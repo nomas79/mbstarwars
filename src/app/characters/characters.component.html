@@ -1,9 +1,17 @@
-<div class="panel panel-default">
+<div class="panel panel-sw">
   <div class="panel-heading">Characters</div>
 
-  <div class="list-group">
-    <ng-container *ngFor="let character of Global.characters">
-      <a routerLink="/character/{{ character.name }}" class="list-group-item">{{ character.name }}</a>
-    </ng-container>
+  <div class="panel-body">
+
+    <div class="row">
+      <div *ngFor="let character of Global.characters" class="col-sm-3">
+        <div class="character" (click)="redirectToCharacter(character.name)">
+          <div class="image">
+            <img src="{{ Global.getImage() }}" />
+          </div>
+          <span class="name">{{ character.name }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

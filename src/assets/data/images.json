@@ -1,0 +1,16 @@
+{
+    "characters": [
+      {
+        "id": 1,        
+        "image": "noimage.png"
+      },
+      {
+        "name": "4",
+        "image": "noimage.png"
+      },     
+      {
+        "name": "3",
+        "url": "noimage.png"
+      }
+    ]
+  }
