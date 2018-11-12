@@ -1,0 +1,18 @@
+.character:hover {
+    cursor: pointer;
+    border-color: #e4ca25;
+}
+.character {
+    text-align: center;
+    border: 1px solid #000;
+    padding: 15px;
+    background-color: #666;
+}
+.character .name {
+color: rgb(75, 213, 238);
+font-weight: bold;
+font-size: 16px;
+}
+.character > .image { height: 200px; }
+.character > .image > img { width: 50%; }
+

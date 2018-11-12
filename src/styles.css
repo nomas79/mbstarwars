@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     padding-top: 25px;
+    background-image: url('/assets/bg.jpg');
 }
+
+.panel-sw {
+    background-color: #111;
+}
+
+.panel-sw .panel-heading {
+ background-color:#666;
+ color: #e4ca25;
+border-color: #e4ca25;
+border-width: 3px;
+text-align: center;
+font-size: 18px;
+font-weight: bold;
+text-transform: uppercase;
+}
+.panel-sw {
+    border-color: #e4ca25;
+border-width: 3px;
+color: #fff;
+}
+

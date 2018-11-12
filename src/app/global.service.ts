@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
   public errors = '';
   public characters: any = [];
+  public images: any = [];
   constructor() { }
 
   addError(message: string) {
@@ -13,5 +14,10 @@ export class GlobalService {
   }
   clearError() {
     this.errors = '';
+  }
+
+  getImage() {
+return '/assets/images/noimage.png';
+    //.images.find(image => character.id === id) }}
   }
 }
