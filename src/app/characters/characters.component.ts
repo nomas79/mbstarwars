@@ -13,11 +13,14 @@ export class CharactersComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {    
+    this.Global.stopWarp();
+    this.Global.setTitle('Star Wars - Characters');
     this.Global.clearError();
   }
 
-  redirectToCharacter(name) {
-this.router.navigate([ '/character/' + name]);
+  redirectToCharacter(name) {    
+    this.Global.startWarp();    
+    this.router.navigate([ '/character/' + name]);
   }
   
   

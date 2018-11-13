@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     padding-top: 25px;
-    background-image: url('/assets/bg.jpg');
+    /* background-image: url('/assets/bg.jpg'); */
 }
 
 .panel-sw {
@@ -22,5 +22,18 @@ text-transform: uppercase;
     border-color: #e4ca25;
 border-width: 3px;
 color: #fff;
+}
+
+.alert {
+    width: 60%;
+    margin: 0 auto 20px auto;
+}
+.alert-sw {
+    border-color: #e4ca25; 
+    border-width: 3px;
+    background-color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
 }
 

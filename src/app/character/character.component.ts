@@ -11,7 +11,7 @@ import { GlobalService } from '../global.service';
 })
 export class CharacterComponent implements OnInit {
 
-  public character: any;  
+  public character: any;
   public films: any = [];
   public counter: number = 0;
   public loading: boolean = true;
@@ -22,23 +22,26 @@ export class CharacterComponent implements OnInit {
     private location: Location,
     public Global: GlobalService) { }
 
-  ngOnInit() {    
+  ngOnInit() {
     console.log(this.Global.characters.length);
-    if (this.Global.characters.length === 0) {      
-      this.router.navigate(['/characters']);      
-    }    
+    if (this.Global.characters.length === 0) {
+      this.router.navigate(['/characters']);
+    }
     this.getCharacter();
+    this.Global.setTitle('Star Wars');
   }
   getCharacter() {
     if (this.Global.characters.length === 0) return false;
     const name = this.route.snapshot.paramMap.get('name');
-    this.character = this.Global.characters.find(character => character.name === name);    
+    this.character = this.Global.characters.find(character => character.name === name);
     this.Api.makeApi(this.character.url)
       .subscribe((response: any) => (this.character = response), () => {
-        this.Global.addError('Error');
+        this.Global.addError('Error loading character details');
         this.loading = false;
-      }, () => {
+        this.Global.stopWarp();
+      }, () => {        
         this.getFilmsDetails();
+        this.Global.setTitle('Star Wars - ' + this.character.name);
       });
   }
 
@@ -54,20 +57,22 @@ export class CharacterComponent implements OnInit {
 
   getFilmDetails(url) {
     this.Api.makeApi(url)
-    .subscribe((response: any) => (this.films.push(response)), () => {
-      this.Global.addError('Error');
-      this.loading = false;
-    }, () => {
-      this.counter--;
-      if (this.counter === 0) {
-this.sortEpisode();
-      }
-    });
+      .subscribe((response: any) => (this.films.push(response)), () => {
+        this.Global.addError('Error getting movie details');
+        this.loading = false;
+        this.Global.stopWarp();
+      }, () => {
+        this.counter--;
+        if (this.counter === 0) {
+          this.Global.stopWarp();          
+          this.sortEpisode();
+        }
+      });
   }
 
   sortEpisode() {
-   
-    this.films.sort(function(a,b) {
+
+    this.films.sort(function (a, b) {
       return (a.episode_id - b.episode_id);
     });
     this.loading = false;
