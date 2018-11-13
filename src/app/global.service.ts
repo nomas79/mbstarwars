@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import '../assets/js/warpspeed.min.js';
+//import '../assets/js/warpspeed.min.js';
 
 declare var WarpSpeed: any;
 
@@ -23,18 +23,6 @@ export class GlobalService {
   }
   clearError() {
     this.errors = '';
-  }
-
-  getImage(obj: any, name) {    
-    console.log('hit');
-    return '/assets/images/noimage.png';
-    try {
-      let test = obj.find(image => image.name === name);
-      return '/assets/images/characters/' + test.image;
-    } catch (e) {
-      return '/assets/images/noimage.png';
-    }
-
   }
 
   stopWarp() {
