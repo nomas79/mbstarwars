@@ -3,16 +3,23 @@
     cursor: pointer;
     border-color: #e4ca25;
 }
-#character .image { text-align: center; background-color: #666;border: 1px solid #000; width: 60%; margin: 0 auto;}
+#character .image { text-align: center; background-color: #666;border: 1px solid #000; width: 60%; margin: 0 auto; padding: 20px; }
+#character .image img { max-height: 300px;  }
 .film {
     text-align: center;
     border: 1px solid #000;
     padding: 15px;
     background-color: #666;
     margin-bottom: 10px;
-    font-stretch: 90%;
+    
 }
-
+.loading {
+    margin-top: 200px;     
+    color: rgb(75, 213, 238);
+    font-size: 24px;
+    background-color: #000;
+    text-align: center;
+}
 .film > .image { height: 200px; }
 .film > .image > img { width: 50%; }
 
@@ -24,6 +31,7 @@
 
 .film .episode, .film .title {     
     display: block;
+    font-size: 100%;
 }
 .film .release {
     font-size: 10px;

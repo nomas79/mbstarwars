@@ -15,15 +15,18 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    this.getCharacters();
     this.getImages();
+    this.getCharacters();
+    this.Global.stopWarp();   
+    
   }
   getCharacters() {
-    this.Api.makeApi('assets/characters.json')
+    this.Api.makeApi('assets/data/characters.json')
       .subscribe((response: any) => (this.Global.characters = response.characters), () => {        
         this.Global.addError('Error loading characters');
       }, () => {
-        this.Global.characters.sort(function(a,b) {
+        
+        this.Global.characters.sort(function(a,b) {          
           return (a.name > b.name ? 1 : -1);
         });        
       });
@@ -32,6 +35,6 @@ export class AppComponent {
     this.Api.makeApi('assets/data/images.json')
       .subscribe((response: any) => (this.Global.images = response), () => {
         this.Global.addError('Error loading images');
-      });
+      }, () => console.log(this.Global.images));
   }
 }

@@ -1,16 +1,26 @@
 {
     "characters": [
-      {
-        "id": 1,        
-        "image": "noimage.png"
-      },
-      {
-        "name": "4",
-        "image": "noimage.png"
-      },     
-      {
-        "name": "3",
-        "url": "noimage.png"
-      }
+        {
+            "name": "Luke Skywalker",
+            "image": "1.jpg"
+        },
+        {
+            "name": "Darth Vader",
+            "image": "4.png"
+        },
+        {
+            "name": "R2-D2",
+            "image": "3.jpg"
+        },
+        {
+            "name": "Obi-wan Kenobi",
+            "image": "10.jpg"
+        }
+    ],
+    "films": [
+        {
+            "name": "The Empire Strikes Back",
+            "image": "noimage.png"
+        }
     ]
-  }
+}
